@@ -1,48 +1,85 @@
-ეს არის Tic-Tac-Toe თამაში Python-ის Tkinter ბიბლიოთეკის გამოყენებით შექმნილი გრაფიკული ინტერფეისით. თამაში მოიცავს:
+Tic-Tac-Toe Game with Tkinter GUI
+This project implements a Tic-Tac-Toe game with a graphical user interface using Python's Tkinter library. The game features a player (O) versus an AI opponent (X), with a clean, modern interface and strategic AI gameplay.
+Features
 
-3×3 ზომის ღილაკების ბადეს, რომელიც წარმოადგენს სათამაშო დაფას
-მოთამაშის ქულების თვალყურის დევნება (O), ხელოვნური ინტელექტი (X) და ფრე
-სუფთა, თანამედროვე ინტერფეისი ფერადი კოდირებული ელემენტებით
-სტრატეგიული ხელოვნური ინტელექტი, რომელიც თამაშობს ოპტიმალურად, მაგრამ სამართლიანად
+3×3 Game Board: A grid of buttons for gameplay.
+Score Tracking: Displays scores for Player (O), AI (X), and draws.
+Modern Interface: Dark blue background with color-coded elements.
+Strategic AI: Plays optimally but fairly, prioritizing winning moves, blocking, and strategic positioning.
 
-კლასის სტრუქტურა
-კოდი განსაზღვრავს ერთ კლას TicTacToeGUI-ს, რომელიც ამუშავებს თამაშის ყველა ლოგიკას და ინტერფეისის ელემენტს. ინიციალიზაცია
-ინიციალიზაციისას, თამაში:
+Class Structure
 
-ქმნის 500×600 პიქსელის ფანჯარას მუქი ლურჯი ფონით
-აწყობს სათამაშო დაფას 9 ცარიელი სივრცის სიის სახით
-კონფიგურირებს შრიფტებს სხვადასხვა ინტერფეისის ელემენტებისთვის
-ქმნის სათაურის ეტიკეტს ზედა ნაწილში
-აწყობს ქულების ჩვენებას, რომელიც აჩვენებს ხელოვნურ ინტელექტს (X), მოთამაშეს (O) და ფრეს რაოდენობას
-ქმნის ღილაკების 3×3 ბადეს სათამაშო დაფისთვის
-ამატებს სტატუსის ეტიკეტს თამაშის მდგომარეობის ინფორმაციის საჩვენებლად
-მოიცავს საკონტროლო ღილაკებს ახალი თამაშის დასაწყებად ან დასასრულებლად
-იწყება ხელოვნური ინტელექტის მიერ პირველი სვლით
+TicTacToeGUI: A single class handling game logic, UI setup, and AI behavior.
 
-თამაშის ლოგიკა
-თამაში იყენებს სტანდარტულ Tic-Tac-Toe წესებს:
+Initialization
 
-მოთამაშეები რიგრიგობით ათავსებენ თავიანთ სიმბოლოებს (X ან O) ცარიელ კვადრატებზე
-პირველი მოთამაშე, რომელიც ზედიზედ სამ სიმბოლოს მიიღებს (ჰორიზონტალურად, ვერტიკალურად ან დიაგონალურად), იმარჯვებს
-თუ ყველა კვადრატი შეივსება გამარჯვებულის გარეშე, თამაში მთავრდება ფრედ
+Creates a 500×600 pixel window with a dark blue background.
+Initializes a 9-space game board (list of blank spaces).
+Configures fonts for UI elements.
+Sets up:
+Title label.
+Score display (AI: X, Player: O, Draws).
+3×3 grid of clickable buttons.
+Status label for game state updates.
+Control buttons (start/end game).
 
-ხელოვნური ინტელექტის ლოგიკა
-ხელოვნური ინტელექტი იყენებს სტრატეგიულ მიდგომას:
 
-ჯერ ამოწმებს, შეუძლია თუ არა მას დაუყოვნებლივ გამარჯვება
-თუ არა, ამოწმებს, სჭირდება თუ არა მოთამაშის დაბლოკვა გამარჯვება
-თუ არც ერთი, ის მიჰყვება სტრატეგიულ სვლებს:
+AI makes the first move.
 
-იღებს ცენტრალურ კვადრატს, თუ შესაძლებელია
-ადგენს პოტენციურ მომგებიან ნიმუშებს
-იღებს კუთხის კვადრატებს, როდესაც ეს ხელსაყრელია
-უკან ბრუნდება გვერდზე ან შემთხვევით მოძრაობს, თუ უკეთესი ვარიანტი არ არსებობს
+Game Logic
 
-თამაშის მიმდინარეობა
+Follows standard Tic-Tac-Toe rules:
+Players alternate placing X (AI) or O (Player) on empty squares.
+Win condition: Three tokens in a row (horizontal, vertical, or diagonal).
+Draw condition: All squares filled without a winner.
 
-თამაში იწყება ხელოვნური ინტელექტით, რომელიც ასრულებს სვლას (ჩვეულებრივ იღებს ცენტრს ან კუთხეს)
-მოთამაშე დააწკაპუნებს ცარიელ კვადრატზე O-ს დასაყენებლად
-თითოეული სვლის შემდეგ, თამაში ამოწმებს გამარჯვებულს
-თუ გამარჯვებულია, ის გამოყოფს მომგებიან ხაზს და აახლებს ანგარიშს
-თუ დაფა გაივსება გამარჯვებულის გარეშე, ის აცხადებს ფრეს
-მოთამაშეებს შეუძლიათ ახალი თამაშის დაწყება ნებისმიერ დროს
+
+
+AI Logic
+The AI employs a strategic approach:
+
+Checks for immediate winning move.
+Blocks player's potential winning move.
+Prioritizes strategic moves:
+Takes the center if available.
+Sets up potential winning patterns.
+Chooses corner squares for advantage.
+Falls back to side squares or random moves if no strategic option exists.
+
+
+
+Game Flow
+
+AI starts (typically center or corner).
+Player clicks an empty square to place O.
+After each move:
+Game checks for a winner.
+If won, highlights winning line and updates score.
+If board is full without a winner, declares a draw.
+
+
+Players can start a new game at any time via control buttons.
+
+Requirements
+
+Python 3.x
+Tkinter (included with standard Python installation)
+
+Usage
+
+Run the Python script.
+AI (X) makes the first move.
+Click an empty square to place O.
+Use the "New Game" button to reset or start over.
+
+Pros
+
+Intuitive, user-friendly interface.
+Strategic AI ensures challenging yet fair gameplay.
+Lightweight and easy to run.
+
+Cons
+
+Limited to 3×3 grid (no support for larger boards).
+AI is deterministic in some scenarios, which may feel predictable.
+
